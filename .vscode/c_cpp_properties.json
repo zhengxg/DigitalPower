@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${Inc}",
+                "${Drivers//STM32F0xx_HAL_Driver//Inc}",
+                "${Drivers//STM32F0xx_HAL_Driver//Inc//Legacy}",
+                "${Drivers//CMSIS//Include }",
+                "${Drivers//CMSIS//Device//ST//STM32F0xx//Include}"
+            ],
+            "defines": [
+                "USE_HAL_DRIVER",
+                "STM32F072xB",
+                "LV_CONF_INCLUDE_SIMPLE"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

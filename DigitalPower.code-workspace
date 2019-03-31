@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"main.h": "c",
+			"stm32f0xx_hal.h": "c",
+			"lv_font.h": "c"
+		}
+	}
+}
