@@ -53,10 +53,20 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+
+typedef struct {
+    int Version;
+    int RtVoltage;
+    int RtCurrent;
+    int SetVoltage;
+    int SetCurrent;
+}SystemInfo_t;
 
 /* USER CODE END ET */
 
@@ -68,7 +78,19 @@ extern int EncodeCount;
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
+#define EN_DEBUG    1
 
+
+#if EN_DEBUG
+#define DEBUG(format, ...)      printf("[Debug] "format, ##__VA_ARGS__)
+#define WARNING(format, ...)    printf("[Warning] "format, ##__VA_ARGS__)
+#define ERROR(format, ...)      printf("[Error] "format, ##__VA_ARGS__)
+#else
+#define DEBUG(format, ...)
+#define WARNING(format, ...)
+#define ERROR(format, ...)
+
+#endif
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -80,6 +102,8 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
+
+extern SystemInfo_t g_SystemInfo;
 
 /* USER CODE END Private defines */
 

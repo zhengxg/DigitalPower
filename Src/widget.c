@@ -42,10 +42,21 @@ int xg_widget_lable_add(xg_widget_t* parent_widget, xg_widget_t* widget){
 }
 
 
-xg_widget_lable_t* xg_widget_lable_init(xg_widget_lable_t* p_widget, int start_x, int start_y, char* text, lv_font_t font)
+void xg_widget_lable_init(xg_widget_lable_t* p_widget, int start_x, int start_y, char* text, lv_font_t font)
 {
     xg_widget_init((xg_widget_t*)p_widget, start_x, start_y, 0, 0);
 
+}
+
+void xg_widget_refresh(xg_widget_lable_t* p_widget)
+{
+    xg_widget_t* p_sub_widget;
+    p_sub_widget = p_widget->next_widget;
+    while(p_sub_widget)
+    {
+        xg_widget_refresh(p_sub_widget);
+        p_sub_widget = p_widget->next_widget;
+    }
 }
 
 

@@ -460,7 +460,7 @@ int OledDrawText(lv_font_t * font_p, int xStart, int yStart, char* string)
     bpp = lv_font_get_bpp(font_p, letter);
     width = lv_font_get_width(font_p, letter);
     hight = lv_font_get_height(font_p);
-    printf("letter %c bpp %d width %d hight %d\r\n", letter, bpp, width,hight);
+    // printf("letter %c bpp %d width %d hight %d\r\n", letter, bpp, width,hight);
     if(bpp == 1)
     {
         //memcpy(OledDisplayBuffer, font_bitmap, 20);
@@ -489,7 +489,7 @@ int OledDrawText(lv_font_t * font_p, int xStart, int yStart, char* string)
  // OledDisplayBuffer[1] = 0xff;
 }
 
-void OledDisplayReflash(void)
+void OledDisplayRefresh(void)
 {
   Picture_display(OledDisplayBuffer);
 }

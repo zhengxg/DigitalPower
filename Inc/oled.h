@@ -20,7 +20,7 @@ extern uint8_t OledDisplayBuffer[];
 
 extern void OLED_Init(void);
 extern int OledDrawText(lv_font_t * font_p, int xStart, int yStart, char* string);
-extern void OledDisplayReflash(void);
+extern void OledDisplayRefresh(void);
 
 
 
