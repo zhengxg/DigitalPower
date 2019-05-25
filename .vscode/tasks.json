@@ -24,7 +24,7 @@
             "problemMatcher": []
         },
         {
-            "label": "download",
+            "label": "st-flash download",
             "type": "shell",
             "command": "st-flash write build/DigitalPower.bin 0x8000000",
             "group": {
@@ -32,6 +32,27 @@
                 "isDefault": true
             },
             "problemMatcher": []
+        },
+        {
+            "label": "pyocd download",
+            "type": "shell",
+            "command": "pyocd-flashtool -t stm32f072c8 -se build/DigitalPower.hex",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "pyocd chip_erase",
+            "type": "shell",
+            "command": "pyocd-flashtool -t stm32f072c8 -ce",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
         }
+        
     ]
 }
