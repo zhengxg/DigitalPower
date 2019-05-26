@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <string.h>
 #include "main.h"
 
 #include "UI/lv_font.h"
@@ -383,14 +385,7 @@ void OLED_Init(void)
 
 
 
-#define ssd1306_swap(a, b) { int16_t t = a; a = b; b = t; }
-#define WIDTH     128
-#define HEIGHT  64
 
-#define BLACK   0
-#define WHITE   1
-#define INVERSE 2
-#define SSD1306_LCDWIDTH    WIDTH
 int getRotation(void)
 {
   return 4;
@@ -402,6 +397,14 @@ int width(void)
 int height(void)
 {
   return HEIGHT;
+}
+
+void OledDrawAll(uint16_t color)
+{
+  if(color == BLACK)
+    memset(OledDisplayBuffer, 0, sizeof(OledDisplayBuffer));
+  else if(color == WHITE)
+    memset(OledDisplayBuffer, 0xFF, sizeof(OledDisplayBuffer));
 }
 
 // the most basic function, set a single pixel
@@ -442,7 +445,7 @@ void OledDrawPixel(int16_t x, int16_t y, uint16_t color) {
 
 int OledDrawText(lv_font_t * font_p, int xStart, int yStart, char* string)
 {
-  uint8_t* font_bitmap;
+  const uint8_t* font_bitmap;
   char letter = 'A';
   int bpp;
   int width;
@@ -482,6 +485,99 @@ int OledDrawText(lv_font_t * font_p, int xStart, int yStart, char* string)
         OledDrawPixel(width+xOffset,y+yOffset,BLACK);
     }
     xOffset+=width+1;  
+  }
+  return xOffset-xStart;
+
+ // OledDisplayBuffer[0] = 0xff;
+ // OledDisplayBuffer[1] = 0xff;
+}
+
+
+int OledDrawTextWithSelect(lv_font_t * font_p, int xStart, int yStart, char* string, int selectStartIndex, int selectLen, TextSelectShow_t showtype)
+{
+  const uint8_t* font_bitmap;
+  char letter = 'A';
+  int bpp;
+  int width;
+  int hight;
+  int x,y,xOffset,yOffset;
+  int charIndex = 0;
+
+//   memset(OledDisplayBuffer, 0, (64/8*128));
+  xOffset = xStart;
+  yOffset = yStart;
+  while(*string)
+  {
+    letter = *string;
+    string++;
+    font_bitmap = lv_font_get_bitmap(font_p, letter);
+    bpp = lv_font_get_bpp(font_p, letter);
+    width = lv_font_get_width(font_p, letter);
+    hight = lv_font_get_height(font_p);
+    // printf("letter %c bpp %d width %d hight %d\r\n", letter, bpp, width,hight);
+    if(bpp == 1)
+    {
+        //memcpy(OledDisplayBuffer, font_bitmap, 20);
+    }
+    if( (charIndex >= selectStartIndex)&& \
+        (charIndex < (selectStartIndex+selectLen))\
+        &&(showtype!=TEXT_SELECT_SHOW_NORMAL)){
+      if(showtype == TEXT_SELECT_SHOW_WHITE){
+        for(y=0;y<hight;y++){
+            for(x=0;x<width;x++){
+              OledDrawPixel(x+xOffset,y+yOffset,WHITE);
+            }
+            OledDrawPixel(width+xOffset,y+yOffset,WHITE);
+        }
+      }
+      else if(showtype == TEXT_SELECT_SHOW_BLACK){
+        for(y=0;y<hight;y++){
+            for(x=0;x<width;x++){
+              OledDrawPixel(x+xOffset,y+yOffset,BLACK);
+            }
+            OledDrawPixel(width+xOffset,y+yOffset,BLACK);
+        }
+      }
+      else if(showtype == TEXT_SELECT_SHOW_TRANSPARENT){
+        for(y=0;y<hight;y++){
+            for(x=0;x<width;x++){
+                if(font_bitmap[x/8+y*((width+7)/8)]&(0x80>>(x%8))){
+                    OledDrawPixel(x+xOffset,y+yOffset,WHITE);
+                }
+            }
+            OledDrawPixel(width+xOffset,y+yOffset,BLACK);
+        }
+      }
+      else if(showtype == TEXT_SELECT_SHOW_INVERT){
+        for(y=0;y<hight;y++){
+            for(x=0;x<width;x++){
+                if(font_bitmap[x/8+y*((width+7)/8)]&(0x80>>(x%8))){
+                    OledDrawPixel(x+xOffset,y+yOffset,BLACK);
+                }
+                else{
+                  OledDrawPixel(x+xOffset,y+yOffset,WHITE);
+              }
+            }
+            OledDrawPixel(width+xOffset,y+yOffset,WHITE);
+        }
+      }
+    }
+    else{
+      for(y=0;y<hight;y++){
+          for(x=0;x<width;x++){
+              if(font_bitmap[x/8+y*((width+7)/8)]&(0x80>>(x%8))){
+                  OledDrawPixel(x+xOffset,y+yOffset,WHITE);
+              }
+              else{
+                  OledDrawPixel(x+xOffset,y+yOffset,BLACK);
+              }
+          }
+          OledDrawPixel(width+xOffset,y+yOffset,BLACK);
+      }
+    }
+    
+    xOffset+=width+1;  
+    charIndex++;
   }
   return xOffset-xStart;
 

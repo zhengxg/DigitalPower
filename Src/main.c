@@ -119,13 +119,11 @@ int fputc(int ch, FILE* stream)
     //USART_SendData(USART1, (unsigned char) ch);
     //while (!(USART1->SR & USART_FLAG_TXE));
     //USART_SendChar(USART1, (uint8_t)ch);
-    HAL_UART_Transmit(&huart1, &ch, 1, 100);
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 100);
     return ch;
 }
 int _write(int fd, char *ptr, int len)
 {
-    int i = 0;
-
     /*
      * write "len" of char from "ptr" to file id "fd"
      * Return number of char written.
@@ -137,7 +135,7 @@ int _write(int fd, char *ptr, int len)
         return -1;
     }
 
-    HAL_UART_Transmit(&huart1, ptr, len, 100);
+    HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, 100);
     
     return len;
 }
@@ -145,8 +143,51 @@ int _write(int fd, char *ptr, int len)
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
+  static uint16_t lastEncodeCount;
+  int step;
+  MenuEvnet_t event = MENU_EVENT_BTN_UP;
     EncodeCount = __HAL_TIM_GET_COUNTER(&hTimEncoder);
     DEBUG("EncodeCount %d\r\n", EncodeCount);
+    if(lastEncodeCount!=EncodeCount)
+    {
+      if(EncodeCount>lastEncodeCount)
+      {
+        if((EncodeCount-lastEncodeCount)>1000)
+        {
+          step = lastEncodeCount;
+          step+=0xFFFF;
+          step -= EncodeCount;
+          event = MENU_EVENT_BTN_UP;
+        }
+        else
+        {
+          step = EncodeCount-lastEncodeCount;
+          event = MENU_EVENT_BTN_DOWN;
+        }
+      }
+      else
+      {
+        if((lastEncodeCount - EncodeCount)>1000)
+        {
+          step = EncodeCount;
+          step+=0xFFFF;
+          step -= lastEncodeCount;
+          event = MENU_EVENT_BTN_DOWN;
+        }
+        else
+        {
+          step = lastEncodeCount - EncodeCount;
+          event = MENU_EVENT_BTN_UP;
+        }
+      }
+      if(step>=4)
+      {
+        lastEncodeCount = EncodeCount;
+        DEBUG("BTN event %d, step %d\r\n", event, step);
+        menuCallback(event);
+      }
+    }
+    
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
@@ -154,6 +195,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if (GPIO_Pin == GPIO_PIN_3)
   {
     DEBUG("EncodeButton click\r\n");
+    menuCallback(MENU_EVENT_BTN_SELECT);
   }
 }
 
@@ -172,7 +214,7 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef * hrtc)
     i=1;
   }
   {
-    DEBUG("rtc alarm\r\n");
+    // DEBUG("rtc alarm\r\n");
   }
 }
 
@@ -186,7 +228,7 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef * htim)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    static int i=0;
+    // static int i=0;
   if (htim == &htim2)
   {
     // if(i)
@@ -199,8 +241,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     //   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
     //   i=1;
     // }
-    DEBUG("HAL_TIM_PeriodElapsed event\r\n");
-      
+
+    //DEBUG("HAL_TIM_PeriodElapsed event\r\n");
+    menuCallback(MENU_EVENT_100MS);
   }
 }
 // void GUIInit(void)
@@ -273,7 +316,7 @@ int main(void)
   g_SystemInfo.SetCurrent = 50;//500mA
   g_SystemInfo.RtVoltage = 100;
   g_SystemInfo.RtCurrent = 50;
-  menu_main_display();
+  menuInit();
 
   /* USER CODE END 2 */
 

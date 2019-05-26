@@ -1,32 +1,31 @@
-ARM GAS  /tmp/ccLw8832.s 			page 1
+ARM GAS  /tmp/ccITqQsm.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m0
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
-  11              		.eabi_attribute 34, 0
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.syntax unified
-  15              		.file	"system_stm32f0xx.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.section	.text.SystemInit,"ax",%progbits
-  20              		.align	2
-  21              		.global	SystemInit
-  22              		.code	16
-  23              		.thumb_func
-  25              	SystemInit:
-  26              	.LFB35:
-  27              		.file 1 "Src/system_stm32f0xx.c"
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"system_stm32f0xx.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.SystemInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	SystemInit
+  18              		.arch armv6s-m
+  19              		.syntax unified
+  20              		.code	16
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	SystemInit:
+  25              	.LFB37:
+  26              		.file 1 "Src/system_stm32f0xx.c"
    1:Src/system_stm32f0xx.c **** /**
    2:Src/system_stm32f0xx.c ****   ******************************************************************************
    3:Src/system_stm32f0xx.c ****   * @file    system_stm32f0xx.c
@@ -58,10 +57,10 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
   29:Src/system_stm32f0xx.c ****   *        System Clock source                    | HSI
   30:Src/system_stm32f0xx.c ****   *-----------------------------------------------------------------------------
   31:Src/system_stm32f0xx.c ****   *        SYSCLK(Hz)                             | 8000000
-ARM GAS  /tmp/ccLw8832.s 			page 2
-
-
   32:Src/system_stm32f0xx.c ****   *-----------------------------------------------------------------------------
+ARM GAS  /tmp/ccITqQsm.s 			page 2
+
+
   33:Src/system_stm32f0xx.c ****   *        HCLK(Hz)                               | 8000000
   34:Src/system_stm32f0xx.c ****   *-----------------------------------------------------------------------------
   35:Src/system_stm32f0xx.c ****   *        AHB Prescaler                          | 1
@@ -118,10 +117,10 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
   86:Src/system_stm32f0xx.c ****   */
   87:Src/system_stm32f0xx.c **** 
   88:Src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_TypesDefinitions
-ARM GAS  /tmp/ccLw8832.s 			page 3
-
-
   89:Src/system_stm32f0xx.c ****   * @{
+ARM GAS  /tmp/ccITqQsm.s 			page 3
+
+
   90:Src/system_stm32f0xx.c ****   */
   91:Src/system_stm32f0xx.c **** 
   92:Src/system_stm32f0xx.c **** /**
@@ -178,10 +177,10 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  143:Src/system_stm32f0xx.c ****   */
  144:Src/system_stm32f0xx.c **** 
  145:Src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_FunctionPrototypes
-ARM GAS  /tmp/ccLw8832.s 			page 4
-
-
  146:Src/system_stm32f0xx.c ****   * @{
+ARM GAS  /tmp/ccITqQsm.s 			page 4
+
+
  147:Src/system_stm32f0xx.c ****   */
  148:Src/system_stm32f0xx.c **** 
  149:Src/system_stm32f0xx.c **** /**
@@ -200,15 +199,16 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  162:Src/system_stm32f0xx.c ****   */
  163:Src/system_stm32f0xx.c **** void SystemInit(void)
  164:Src/system_stm32f0xx.c **** {
-  28              		.loc 1 164 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
+  27              		.loc 1 164 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
  165:Src/system_stm32f0xx.c ****   /* Reset the RCC clock configuration to the default reset state ------------*/
  166:Src/system_stm32f0xx.c ****   /* Set HSION bit */
  167:Src/system_stm32f0xx.c ****   RCC->CR |= (uint32_t)0x00000001U;
-  33              		.loc 1 167 0
+  32              		.loc 1 167 3 view .LVU1
+  33              		.loc 1 167 11 is_stmt 0 view .LVU2
   34 0000 114B     		ldr	r3, .L2
   35 0002 1A68     		ldr	r2, [r3]
   36 0004 0121     		movs	r1, #1
@@ -221,56 +221,62 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  172:Src/system_stm32f0xx.c **** #else
  173:Src/system_stm32f0xx.c ****   /* Reset SW[1:0], HPRE[3:0], PPRE[2:0], ADCPRE, MCOSEL[2:0], MCOPRE[2:0] and PLLNODIV bits */
  174:Src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)0x08FFB80CU;
-  39              		.loc 1 174 0
-  40 000a 5868     		ldr	r0, [r3, #4]
-  41 000c 0F4A     		ldr	r2, .L2+4
-  42 000e 0240     		ands	r2, r0
-  43 0010 5A60     		str	r2, [r3, #4]
+  39              		.loc 1 174 3 is_stmt 1 view .LVU3
+  40              		.loc 1 174 13 is_stmt 0 view .LVU4
+  41 000a 5A68     		ldr	r2, [r3, #4]
+  42 000c 0F48     		ldr	r0, .L2+4
+  43 000e 0240     		ands	r2, r0
+  44 0010 5A60     		str	r2, [r3, #4]
  175:Src/system_stm32f0xx.c **** #endif /* STM32F051x8 or STM32F058x8 */
  176:Src/system_stm32f0xx.c ****   
  177:Src/system_stm32f0xx.c ****   /* Reset HSEON, CSSON and PLLON bits */
  178:Src/system_stm32f0xx.c ****   RCC->CR &= (uint32_t)0xFEF6FFFFU;
-  44              		.loc 1 178 0
-  45 0012 1868     		ldr	r0, [r3]
-  46 0014 0E4A     		ldr	r2, .L2+8
-  47 0016 0240     		ands	r2, r0
-  48 0018 1A60     		str	r2, [r3]
+  45              		.loc 1 178 3 is_stmt 1 view .LVU5
+  46              		.loc 1 178 11 is_stmt 0 view .LVU6
+  47 0012 1A68     		ldr	r2, [r3]
+  48 0014 0E48     		ldr	r0, .L2+8
+  49 0016 0240     		ands	r2, r0
+  50 0018 1A60     		str	r2, [r3]
  179:Src/system_stm32f0xx.c **** 
+ARM GAS  /tmp/ccITqQsm.s 			page 5
+
+
  180:Src/system_stm32f0xx.c ****   /* Reset HSEBYP bit */
  181:Src/system_stm32f0xx.c ****   RCC->CR &= (uint32_t)0xFFFBFFFFU;
-ARM GAS  /tmp/ccLw8832.s 			page 5
-
-
-  49              		.loc 1 181 0
-  50 001a 1868     		ldr	r0, [r3]
-  51 001c 0D4A     		ldr	r2, .L2+12
-  52 001e 0240     		ands	r2, r0
-  53 0020 1A60     		str	r2, [r3]
+  51              		.loc 1 181 3 is_stmt 1 view .LVU7
+  52              		.loc 1 181 11 is_stmt 0 view .LVU8
+  53 001a 1A68     		ldr	r2, [r3]
+  54 001c 0D48     		ldr	r0, .L2+12
+  55 001e 0240     		ands	r2, r0
+  56 0020 1A60     		str	r2, [r3]
  182:Src/system_stm32f0xx.c **** 
  183:Src/system_stm32f0xx.c ****   /* Reset PLLSRC, PLLXTPRE and PLLMUL[3:0] bits */
  184:Src/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)0xFFC0FFFFU;
-  54              		.loc 1 184 0
-  55 0022 5868     		ldr	r0, [r3, #4]
-  56 0024 0C4A     		ldr	r2, .L2+16
-  57 0026 0240     		ands	r2, r0
-  58 0028 5A60     		str	r2, [r3, #4]
+  57              		.loc 1 184 3 is_stmt 1 view .LVU9
+  58              		.loc 1 184 13 is_stmt 0 view .LVU10
+  59 0022 5A68     		ldr	r2, [r3, #4]
+  60 0024 0C48     		ldr	r0, .L2+16
+  61 0026 0240     		ands	r2, r0
+  62 0028 5A60     		str	r2, [r3, #4]
  185:Src/system_stm32f0xx.c **** 
  186:Src/system_stm32f0xx.c ****   /* Reset PREDIV[3:0] bits */
  187:Src/system_stm32f0xx.c ****   RCC->CFGR2 &= (uint32_t)0xFFFFFFF0U;
-  59              		.loc 1 187 0
-  60 002a DA6A     		ldr	r2, [r3, #44]
-  61 002c 0F20     		movs	r0, #15
-  62 002e 8243     		bics	r2, r0
-  63 0030 DA62     		str	r2, [r3, #44]
+  63              		.loc 1 187 3 is_stmt 1 view .LVU11
+  64              		.loc 1 187 14 is_stmt 0 view .LVU12
+  65 002a DA6A     		ldr	r2, [r3, #44]
+  66 002c 0F20     		movs	r0, #15
+  67 002e 8243     		bics	r2, r0
+  68 0030 DA62     		str	r2, [r3, #44]
  188:Src/system_stm32f0xx.c **** 
  189:Src/system_stm32f0xx.c **** #if defined (STM32F072xB) || defined (STM32F078xx)
  190:Src/system_stm32f0xx.c ****   /* Reset USART2SW[1:0], USART1SW[1:0], I2C1SW, CECSW, USBSW and ADCSW bits */
  191:Src/system_stm32f0xx.c ****   RCC->CFGR3 &= (uint32_t)0xFFFCFE2CU;
-  64              		.loc 1 191 0
-  65 0032 186B     		ldr	r0, [r3, #48]
-  66 0034 094A     		ldr	r2, .L2+20
-  67 0036 0240     		ands	r2, r0
-  68 0038 1A63     		str	r2, [r3, #48]
+  69              		.loc 1 191 3 is_stmt 1 view .LVU13
+  70              		.loc 1 191 14 is_stmt 0 view .LVU14
+  71 0032 1A6B     		ldr	r2, [r3, #48]
+  72 0034 0948     		ldr	r0, .L2+20
+  73 0036 0240     		ands	r2, r0
+  74 0038 1A63     		str	r2, [r3, #48]
  192:Src/system_stm32f0xx.c **** #elif defined (STM32F071xB)
  193:Src/system_stm32f0xx.c ****   /* Reset USART2SW[1:0], USART1SW[1:0], I2C1SW, CECSW and ADCSW bits */
  194:Src/system_stm32f0xx.c ****   RCC->CFGR3 &= (uint32_t)0xFFFFCEACU;
@@ -292,48 +298,52 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  210:Src/system_stm32f0xx.c ****   /* Set default USB clock to PLLCLK, since there is no HSI48 */
  211:Src/system_stm32f0xx.c ****   RCC->CFGR3 |= (uint32_t)0x00000080U;  
  212:Src/system_stm32f0xx.c **** #else
+ARM GAS  /tmp/ccITqQsm.s 			page 6
+
+
  213:Src/system_stm32f0xx.c ****  #warning "No target selected"
  214:Src/system_stm32f0xx.c **** #endif
  215:Src/system_stm32f0xx.c **** 
  216:Src/system_stm32f0xx.c ****   /* Reset HSI14 bit */
  217:Src/system_stm32f0xx.c ****   RCC->CR2 &= (uint32_t)0xFFFFFFFEU;
-  69              		.loc 1 217 0
-ARM GAS  /tmp/ccLw8832.s 			page 6
-
-
-  70 003a 5A6B     		ldr	r2, [r3, #52]
-  71 003c 8A43     		bics	r2, r1
-  72 003e 5A63     		str	r2, [r3, #52]
+  75              		.loc 1 217 3 is_stmt 1 view .LVU15
+  76              		.loc 1 217 12 is_stmt 0 view .LVU16
+  77 003a 5A6B     		ldr	r2, [r3, #52]
+  78 003c 8A43     		bics	r2, r1
+  79 003e 5A63     		str	r2, [r3, #52]
  218:Src/system_stm32f0xx.c **** 
  219:Src/system_stm32f0xx.c ****   /* Disable all interrupts */
  220:Src/system_stm32f0xx.c ****   RCC->CIR = 0x00000000U;
-  73              		.loc 1 220 0
-  74 0040 0022     		movs	r2, #0
-  75 0042 9A60     		str	r2, [r3, #8]
+  80              		.loc 1 220 3 is_stmt 1 view .LVU17
+  81              		.loc 1 220 12 is_stmt 0 view .LVU18
+  82 0040 0022     		movs	r2, #0
+  83 0042 9A60     		str	r2, [r3, #8]
  221:Src/system_stm32f0xx.c **** 
  222:Src/system_stm32f0xx.c **** }
-  76              		.loc 1 222 0
-  77              		@ sp needed
-  78 0044 7047     		bx	lr
-  79              	.L3:
-  80 0046 C046     		.align	2
-  81              	.L2:
-  82 0048 00100240 		.word	1073876992
-  83 004c 0CB8FF08 		.word	150976524
-  84 0050 FFFFF6FE 		.word	-17367041
-  85 0054 FFFFFBFF 		.word	-262145
-  86 0058 FFFFC0FF 		.word	-4128769
-  87 005c 2CFEFCFF 		.word	-197076
-  88              		.cfi_endproc
-  89              	.LFE35:
-  91              		.global	__aeabi_uidiv
-  92              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
-  93              		.align	2
-  94              		.global	SystemCoreClockUpdate
-  95              		.code	16
-  96              		.thumb_func
-  98              	SystemCoreClockUpdate:
-  99              	.LFB36:
+  84              		.loc 1 222 1 view .LVU19
+  85              		@ sp needed
+  86 0044 7047     		bx	lr
+  87              	.L3:
+  88 0046 C046     		.align	2
+  89              	.L2:
+  90 0048 00100240 		.word	1073876992
+  91 004c 0CB8FF08 		.word	150976524
+  92 0050 FFFFF6FE 		.word	-17367041
+  93 0054 FFFFFBFF 		.word	-262145
+  94 0058 FFFFC0FF 		.word	-4128769
+  95 005c 2CFEFCFF 		.word	-197076
+  96              		.cfi_endproc
+  97              	.LFE37:
+  99              		.global	__aeabi_uidiv
+ 100              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	SystemCoreClockUpdate
+ 103              		.syntax unified
+ 104              		.code	16
+ 105              		.thumb_func
+ 106              		.fpu softvfp
+ 108              	SystemCoreClockUpdate:
+ 109              	.LFB38:
  223:Src/system_stm32f0xx.c **** 
  224:Src/system_stm32f0xx.c **** /**
  225:Src/system_stm32f0xx.c ****    * @brief  Update SystemCoreClock variable according to Clock Register Values.
@@ -348,6 +358,9 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  234:Src/system_stm32f0xx.c ****   * @note   - The system frequency computed by this function is not the real
  235:Src/system_stm32f0xx.c ****   *           frequency in the chip. It is calculated based on the predefined
  236:Src/system_stm32f0xx.c ****   *           constant and the selected clock source:
+ARM GAS  /tmp/ccITqQsm.s 			page 7
+
+
  237:Src/system_stm32f0xx.c ****   *
  238:Src/system_stm32f0xx.c ****   *           - If SYSCLK source is HSI, SystemCoreClock will contain the HSI_VALUE(*)
  239:Src/system_stm32f0xx.c ****   *
@@ -358,9 +371,6 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  244:Src/system_stm32f0xx.c ****   *
  245:Src/system_stm32f0xx.c ****   *         (*) HSI_VALUE is a constant defined in stm32f0xx_hal.h file (default value
  246:Src/system_stm32f0xx.c ****   *             8 MHz) but the real value may vary depending on the variations
-ARM GAS  /tmp/ccLw8832.s 			page 7
-
-
  247:Src/system_stm32f0xx.c ****   *             in voltage and temperature.
  248:Src/system_stm32f0xx.c ****   *
  249:Src/system_stm32f0xx.c ****   *         (**) HSE_VALUE is a constant defined in stm32f0xx_hal.h file (default value
@@ -376,138 +386,65 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  259:Src/system_stm32f0xx.c ****   */
  260:Src/system_stm32f0xx.c **** void SystemCoreClockUpdate (void)
  261:Src/system_stm32f0xx.c **** {
- 100              		.loc 1 261 0
- 101              		.cfi_startproc
- 102              		@ args = 0, pretend = 0, frame = 0
- 103              		@ frame_needed = 0, uses_anonymous_args = 0
- 104 0000 70B5     		push	{r4, r5, r6, lr}
- 105              	.LCFI0:
- 106              		.cfi_def_cfa_offset 16
- 107              		.cfi_offset 4, -16
- 108              		.cfi_offset 5, -12
- 109              		.cfi_offset 6, -8
- 110              		.cfi_offset 14, -4
- 111              	.LVL0:
+ 110              		.loc 1 261 1 is_stmt 1 view -0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114 0000 10B5     		push	{r4, lr}
+ 115              	.LCFI0:
+ 116              		.cfi_def_cfa_offset 8
+ 117              		.cfi_offset 4, -8
+ 118              		.cfi_offset 14, -4
  262:Src/system_stm32f0xx.c ****   uint32_t tmp = 0, pllmull = 0, pllsource = 0, predivfactor = 0;
+ 119              		.loc 1 262 3 view .LVU21
+ 120              	.LVL0:
  263:Src/system_stm32f0xx.c **** 
  264:Src/system_stm32f0xx.c ****   /* Get SYSCLK source -------------------------------------------------------*/
  265:Src/system_stm32f0xx.c ****   tmp = RCC->CFGR & RCC_CFGR_SWS;
- 112              		.loc 1 265 0
- 113 0002 254B     		ldr	r3, .L13
- 114 0004 5B68     		ldr	r3, [r3, #4]
- 115 0006 0C22     		movs	r2, #12
- 116 0008 1340     		ands	r3, r2
- 117              	.LVL1:
+ 121              		.loc 1 265 3 view .LVU22
+ 122              		.loc 1 265 12 is_stmt 0 view .LVU23
+ 123 0002 254B     		ldr	r3, .L14
+ 124 0004 5A68     		ldr	r2, [r3, #4]
+ 125              		.loc 1 265 7 view .LVU24
+ 126 0006 0C23     		movs	r3, #12
+ 127 0008 1340     		ands	r3, r2
+ 128              	.LVL1:
  266:Src/system_stm32f0xx.c **** 
  267:Src/system_stm32f0xx.c ****   switch (tmp)
- 118              		.loc 1 267 0
- 119 000a 042B     		cmp	r3, #4
- 120 000c 07D0     		beq	.L6
- 121 000e 082B     		cmp	r3, #8
- 122 0010 09D0     		beq	.L7
- 123 0012 002B     		cmp	r3, #0
- 124 0014 31D1     		bne	.L12
+ 129              		.loc 1 267 3 is_stmt 1 view .LVU25
+ 130 000a 042B     		cmp	r3, #4
+ 131 000c 16D0     		beq	.L5
+ 132 000e 082B     		cmp	r3, #8
+ 133 0010 18D0     		beq	.L6
+ 134 0012 002B     		cmp	r3, #0
+ 135 0014 03D0     		beq	.L11
+ARM GAS  /tmp/ccITqQsm.s 			page 8
+
+
  268:Src/system_stm32f0xx.c ****   {
  269:Src/system_stm32f0xx.c ****     case RCC_CFGR_SWS_HSI:  /* HSI used as system clock */
  270:Src/system_stm32f0xx.c ****       SystemCoreClock = HSI_VALUE;
- 125              		.loc 1 270 0
- 126 0016 214A     		ldr	r2, .L13+4
- 127 0018 214B     		ldr	r3, .L13+8
- 128              	.LVL2:
- 129 001a 1A60     		str	r2, [r3]
  271:Src/system_stm32f0xx.c ****       break;
- 130              		.loc 1 271 0
- 131 001c 30E0     		b	.L9
-ARM GAS  /tmp/ccLw8832.s 			page 8
-
-
- 132              	.LVL3:
- 133              	.L6:
  272:Src/system_stm32f0xx.c ****     case RCC_CFGR_SWS_HSE:  /* HSE used as system clock */
  273:Src/system_stm32f0xx.c ****       SystemCoreClock = HSE_VALUE;
- 134              		.loc 1 273 0
- 135 001e 1F4A     		ldr	r2, .L13+4
- 136 0020 1F4B     		ldr	r3, .L13+8
- 137              	.LVL4:
- 138 0022 1A60     		str	r2, [r3]
  274:Src/system_stm32f0xx.c ****       break;
- 139              		.loc 1 274 0
- 140 0024 2CE0     		b	.L9
- 141              	.LVL5:
- 142              	.L7:
  275:Src/system_stm32f0xx.c ****     case RCC_CFGR_SWS_PLL:  /* PLL used as system clock */
  276:Src/system_stm32f0xx.c ****       /* Get PLL clock source and multiplication factor ----------------------*/
  277:Src/system_stm32f0xx.c ****       pllmull = RCC->CFGR & RCC_CFGR_PLLMUL;
- 143              		.loc 1 277 0
- 144 0026 1C4D     		ldr	r5, .L13
- 145 0028 6868     		ldr	r0, [r5, #4]
- 146              	.LVL6:
  278:Src/system_stm32f0xx.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
- 147              		.loc 1 278 0
- 148 002a 6A68     		ldr	r2, [r5, #4]
- 149 002c C023     		movs	r3, #192
- 150              	.LVL7:
- 151 002e 5B02     		lsls	r3, r3, #9
- 152 0030 1A40     		ands	r2, r3
- 153              	.LVL8:
  279:Src/system_stm32f0xx.c ****       pllmull = ( pllmull >> 18) + 2;
- 154              		.loc 1 279 0
- 155 0032 800C     		lsrs	r0, r0, #18
- 156              	.LVL9:
- 157 0034 0F21     		movs	r1, #15
- 158 0036 0840     		ands	r0, r1
- 159 0038 841C     		adds	r4, r0, #2
- 160              	.LVL10:
  280:Src/system_stm32f0xx.c ****       predivfactor = (RCC->CFGR2 & RCC_CFGR2_PREDIV) + 1;
- 161              		.loc 1 280 0
- 162 003a EB6A     		ldr	r3, [r5, #44]
- 163 003c 1940     		ands	r1, r3
- 164 003e 0131     		adds	r1, r1, #1
- 165              	.LVL11:
  281:Src/system_stm32f0xx.c **** 
  282:Src/system_stm32f0xx.c ****       if (pllsource == RCC_CFGR_PLLSRC_HSE_PREDIV)
- 166              		.loc 1 282 0
- 167 0040 8023     		movs	r3, #128
- 168 0042 5B02     		lsls	r3, r3, #9
- 169 0044 9A42     		cmp	r2, r3
- 170 0046 06D1     		bne	.L10
  283:Src/system_stm32f0xx.c ****       {
  284:Src/system_stm32f0xx.c ****         /* HSE used as PLL clock source : SystemCoreClock = HSE/PREDIV * PLLMUL */
  285:Src/system_stm32f0xx.c ****         SystemCoreClock = (HSE_VALUE/predivfactor) * pllmull;
- 171              		.loc 1 285 0
- 172 0048 1448     		ldr	r0, .L13+4
- 173 004a FFF7FEFF 		bl	__aeabi_uidiv
- 174              	.LVL12:
-ARM GAS  /tmp/ccLw8832.s 			page 9
-
-
- 175 004e 6043     		muls	r0, r4
- 176 0050 134B     		ldr	r3, .L13+8
- 177 0052 1860     		str	r0, [r3]
- 178 0054 14E0     		b	.L9
- 179              	.LVL13:
- 180              	.L10:
  286:Src/system_stm32f0xx.c ****       }
  287:Src/system_stm32f0xx.c **** #if defined(STM32F042x6) || defined(STM32F048xx) || defined(STM32F072xB) || defined(STM32F078xx) ||
  288:Src/system_stm32f0xx.c ****       else if (pllsource == RCC_CFGR_PLLSRC_HSI48_PREDIV)
- 181              		.loc 1 288 0
- 182 0056 C023     		movs	r3, #192
- 183 0058 5B02     		lsls	r3, r3, #9
- 184 005a 9A42     		cmp	r2, r3
- 185 005c 06D1     		bne	.L11
  289:Src/system_stm32f0xx.c ****       {
  290:Src/system_stm32f0xx.c ****         /* HSI48 used as PLL clock source : SystemCoreClock = HSI48/PREDIV * PLLMUL */
  291:Src/system_stm32f0xx.c ****         SystemCoreClock = (HSI48_VALUE/predivfactor) * pllmull;
- 186              		.loc 1 291 0
- 187 005e 1148     		ldr	r0, .L13+12
- 188 0060 FFF7FEFF 		bl	__aeabi_uidiv
- 189              	.LVL14:
- 190 0064 6043     		muls	r0, r4
- 191 0066 0E4B     		ldr	r3, .L13+8
- 192 0068 1860     		str	r0, [r3]
- 193 006a 09E0     		b	.L9
- 194              	.LVL15:
- 195              	.L11:
  292:Src/system_stm32f0xx.c ****       }
  293:Src/system_stm32f0xx.c **** #endif /* STM32F042x6 || STM32F048xx || STM32F072xB || STM32F078xx || STM32F091xC || STM32F098xx */
  294:Src/system_stm32f0xx.c ****       else
@@ -517,16 +454,6 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  298:Src/system_stm32f0xx.c ****  || defined(STM32F070xB) || defined(STM32F091xC) || defined(STM32F098xx)  || defined(STM32F030xC)
  299:Src/system_stm32f0xx.c ****         /* HSI used as PLL clock source : SystemCoreClock = HSI/PREDIV * PLLMUL */
  300:Src/system_stm32f0xx.c ****         SystemCoreClock = (HSI_VALUE/predivfactor) * pllmull;
- 196              		.loc 1 300 0
- 197 006c 0B48     		ldr	r0, .L13+4
- 198 006e FFF7FEFF 		bl	__aeabi_uidiv
- 199              	.LVL16:
- 200 0072 6043     		muls	r0, r4
- 201 0074 0A4B     		ldr	r3, .L13+8
- 202 0076 1860     		str	r0, [r3]
- 203 0078 02E0     		b	.L9
- 204              	.LVL17:
- 205              	.L12:
  301:Src/system_stm32f0xx.c **** #else
  302:Src/system_stm32f0xx.c ****         /* HSI used as PLL clock source : SystemCoreClock = HSI/2 * PLLMUL */
  303:Src/system_stm32f0xx.c ****         SystemCoreClock = (HSI_VALUE >> 1) * pllmull;
@@ -537,116 +464,286 @@ ARM GAS  /tmp/ccLw8832.s 			page 1
  308:Src/system_stm32f0xx.c ****       break;
  309:Src/system_stm32f0xx.c ****     default: /* HSI used as system clock */
  310:Src/system_stm32f0xx.c ****       SystemCoreClock = HSI_VALUE;
- 206              		.loc 1 310 0
-ARM GAS  /tmp/ccLw8832.s 			page 10
-
-
- 207 007a 084A     		ldr	r2, .L13+4
- 208 007c 084B     		ldr	r3, .L13+8
- 209              	.LVL18:
- 210 007e 1A60     		str	r2, [r3]
- 211              	.LVL19:
- 212              	.L9:
+ 136              		.loc 1 310 7 view .LVU26
+ 137              		.loc 1 310 23 is_stmt 0 view .LVU27
+ 138 0016 214B     		ldr	r3, .L14+4
+ 139              	.LVL2:
+ 140              		.loc 1 310 23 view .LVU28
+ 141 0018 214A     		ldr	r2, .L14+8
+ 142              	.LVL3:
+ 143              		.loc 1 310 23 view .LVU29
+ 144 001a 1A60     		str	r2, [r3]
  311:Src/system_stm32f0xx.c ****       break;
+ 145              		.loc 1 311 7 is_stmt 1 view .LVU30
+ 146 001c 02E0     		b	.L8
+ 147              	.LVL4:
+ 148              	.L11:
+ARM GAS  /tmp/ccITqQsm.s 			page 9
+
+
+ 270:Src/system_stm32f0xx.c ****       break;
+ 149              		.loc 1 270 7 view .LVU31
+ 270:Src/system_stm32f0xx.c ****       break;
+ 150              		.loc 1 270 23 is_stmt 0 view .LVU32
+ 151 001e 1F4B     		ldr	r3, .L14+4
+ 152              	.LVL5:
+ 270:Src/system_stm32f0xx.c ****       break;
+ 153              		.loc 1 270 23 view .LVU33
+ 154 0020 1F4A     		ldr	r2, .L14+8
+ 155              	.LVL6:
+ 270:Src/system_stm32f0xx.c ****       break;
+ 156              		.loc 1 270 23 view .LVU34
+ 157 0022 1A60     		str	r2, [r3]
+ 271:Src/system_stm32f0xx.c ****     case RCC_CFGR_SWS_HSE:  /* HSE used as system clock */
+ 158              		.loc 1 271 7 is_stmt 1 view .LVU35
+ 159              	.LVL7:
+ 160              	.L8:
  312:Src/system_stm32f0xx.c ****   }
  313:Src/system_stm32f0xx.c ****   /* Compute HCLK clock frequency ----------------*/
  314:Src/system_stm32f0xx.c ****   /* Get HCLK prescaler */
  315:Src/system_stm32f0xx.c ****   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
- 213              		.loc 1 315 0
- 214 0080 054B     		ldr	r3, .L13
- 215 0082 5B68     		ldr	r3, [r3, #4]
- 216 0084 1B09     		lsrs	r3, r3, #4
- 217 0086 0F22     		movs	r2, #15
- 218 0088 1340     		ands	r3, r2
- 219 008a 074A     		ldr	r2, .L13+16
- 220 008c D35C     		ldrb	r3, [r2, r3]
- 221              	.LVL20:
+ 161              		.loc 1 315 3 view .LVU36
+ 162              		.loc 1 315 28 is_stmt 0 view .LVU37
+ 163 0024 1C4B     		ldr	r3, .L14
+ 164 0026 5A68     		ldr	r2, [r3, #4]
+ 165              		.loc 1 315 52 view .LVU38
+ 166 0028 1209     		lsrs	r2, r2, #4
+ 167 002a 0F23     		movs	r3, #15
+ 168 002c 1340     		ands	r3, r2
+ 169              		.loc 1 315 22 view .LVU39
+ 170 002e 1D4A     		ldr	r2, .L14+12
+ 171 0030 D35C     		ldrb	r3, [r2, r3]
+ 172              	.LVL8:
  316:Src/system_stm32f0xx.c ****   /* HCLK clock frequency */
  317:Src/system_stm32f0xx.c ****   SystemCoreClock >>= tmp;
- 222              		.loc 1 317 0
- 223 008e 044A     		ldr	r2, .L13+8
- 224 0090 1168     		ldr	r1, [r2]
- 225 0092 D940     		lsrs	r1, r1, r3
- 226 0094 1160     		str	r1, [r2]
+ 173              		.loc 1 317 3 is_stmt 1 view .LVU40
+ 174              		.loc 1 317 19 is_stmt 0 view .LVU41
+ 175 0032 1A4A     		ldr	r2, .L14+4
+ 176 0034 1168     		ldr	r1, [r2]
+ 177 0036 D940     		lsrs	r1, r1, r3
+ 178 0038 1160     		str	r1, [r2]
  318:Src/system_stm32f0xx.c **** }
- 227              		.loc 1 318 0
- 228              		@ sp needed
- 229 0096 70BD     		pop	{r4, r5, r6, pc}
- 230              	.L14:
- 231              		.align	2
- 232              	.L13:
- 233 0098 00100240 		.word	1073876992
- 234 009c 00127A00 		.word	8000000
- 235 00a0 00000000 		.word	.LANCHOR0
- 236 00a4 006CDC02 		.word	48000000
- 237 00a8 00000000 		.word	.LANCHOR1
- 238              		.cfi_endproc
- 239              	.LFE36:
- 241              		.global	APBPrescTable
- 242              		.global	AHBPrescTable
- 243              		.global	SystemCoreClock
- 244              		.section	.rodata.AHBPrescTable,"a",%progbits
- 245              		.align	2
- 246              		.set	.LANCHOR1,. + 0
- 249              	AHBPrescTable:
- 250 0000 00       		.byte	0
- 251 0001 00       		.byte	0
- 252 0002 00       		.byte	0
- 253 0003 00       		.byte	0
- 254 0004 00       		.byte	0
- 255 0005 00       		.byte	0
- 256 0006 00       		.byte	0
- 257 0007 00       		.byte	0
- 258 0008 01       		.byte	1
-ARM GAS  /tmp/ccLw8832.s 			page 11
+ 179              		.loc 1 318 1 view .LVU42
+ 180              		@ sp needed
+ 181 003a 10BD     		pop	{r4, pc}
+ 182              	.LVL9:
+ 183              	.L5:
+ 273:Src/system_stm32f0xx.c ****       break;
+ 184              		.loc 1 273 7 is_stmt 1 view .LVU43
+ 273:Src/system_stm32f0xx.c ****       break;
+ 185              		.loc 1 273 23 is_stmt 0 view .LVU44
+ 186 003c 174B     		ldr	r3, .L14+4
+ 187              	.LVL10:
+ 273:Src/system_stm32f0xx.c ****       break;
+ 188              		.loc 1 273 23 view .LVU45
+ 189 003e 184A     		ldr	r2, .L14+8
+ 190              	.LVL11:
+ARM GAS  /tmp/ccITqQsm.s 			page 10
 
 
- 259 0009 02       		.byte	2
- 260 000a 03       		.byte	3
- 261 000b 04       		.byte	4
- 262 000c 06       		.byte	6
- 263 000d 07       		.byte	7
- 264 000e 08       		.byte	8
- 265 000f 09       		.byte	9
- 266              		.section	.rodata.APBPrescTable,"a",%progbits
- 267              		.align	2
- 270              	APBPrescTable:
- 271 0000 00       		.byte	0
- 272 0001 00       		.byte	0
- 273 0002 00       		.byte	0
- 274 0003 00       		.byte	0
- 275 0004 01       		.byte	1
- 276 0005 02       		.byte	2
- 277 0006 03       		.byte	3
- 278 0007 04       		.byte	4
- 279              		.section	.data.SystemCoreClock,"aw",%progbits
- 280              		.align	2
- 281              		.set	.LANCHOR0,. + 0
- 284              	SystemCoreClock:
- 285 0000 00127A00 		.word	8000000
- 286              		.text
- 287              	.Letext0:
- 288              		.file 2 "/usr/local/gcc-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h"
- 289              		.file 3 "/usr/local/gcc-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h"
- 290              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
-ARM GAS  /tmp/ccLw8832.s 			page 12
+ 273:Src/system_stm32f0xx.c ****       break;
+ 191              		.loc 1 273 23 view .LVU46
+ 192 0040 1A60     		str	r2, [r3]
+ 274:Src/system_stm32f0xx.c ****     case RCC_CFGR_SWS_PLL:  /* PLL used as system clock */
+ 193              		.loc 1 274 7 is_stmt 1 view .LVU47
+ 194 0042 EFE7     		b	.L8
+ 195              	.LVL12:
+ 196              	.L6:
+ 277:Src/system_stm32f0xx.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
+ 197              		.loc 1 277 7 view .LVU48
+ 277:Src/system_stm32f0xx.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
+ 198              		.loc 1 277 20 is_stmt 0 view .LVU49
+ 199 0044 144A     		ldr	r2, .L14
+ 200 0046 5068     		ldr	r0, [r2, #4]
+ 201              	.LVL13:
+ 278:Src/system_stm32f0xx.c ****       pllmull = ( pllmull >> 18) + 2;
+ 202              		.loc 1 278 7 is_stmt 1 view .LVU50
+ 278:Src/system_stm32f0xx.c ****       pllmull = ( pllmull >> 18) + 2;
+ 203              		.loc 1 278 22 is_stmt 0 view .LVU51
+ 204 0048 5368     		ldr	r3, [r2, #4]
+ 205              	.LVL14:
+ 278:Src/system_stm32f0xx.c ****       pllmull = ( pllmull >> 18) + 2;
+ 206              		.loc 1 278 17 view .LVU52
+ 207 004a C021     		movs	r1, #192
+ 208 004c 4902     		lsls	r1, r1, #9
+ 209 004e 0B40     		ands	r3, r1
+ 210              	.LVL15:
+ 279:Src/system_stm32f0xx.c ****       predivfactor = (RCC->CFGR2 & RCC_CFGR2_PREDIV) + 1;
+ 211              		.loc 1 279 7 is_stmt 1 view .LVU53
+ 279:Src/system_stm32f0xx.c ****       predivfactor = (RCC->CFGR2 & RCC_CFGR2_PREDIV) + 1;
+ 212              		.loc 1 279 27 is_stmt 0 view .LVU54
+ 213 0050 800C     		lsrs	r0, r0, #18
+ 214              	.LVL16:
+ 279:Src/system_stm32f0xx.c ****       predivfactor = (RCC->CFGR2 & RCC_CFGR2_PREDIV) + 1;
+ 215              		.loc 1 279 27 view .LVU55
+ 216 0052 0F21     		movs	r1, #15
+ 217 0054 0840     		ands	r0, r1
+ 279:Src/system_stm32f0xx.c ****       predivfactor = (RCC->CFGR2 & RCC_CFGR2_PREDIV) + 1;
+ 218              		.loc 1 279 15 view .LVU56
+ 219 0056 841C     		adds	r4, r0, #2
+ 220              	.LVL17:
+ 280:Src/system_stm32f0xx.c **** 
+ 221              		.loc 1 280 7 is_stmt 1 view .LVU57
+ 280:Src/system_stm32f0xx.c **** 
+ 222              		.loc 1 280 26 is_stmt 0 view .LVU58
+ 223 0058 D26A     		ldr	r2, [r2, #44]
+ 280:Src/system_stm32f0xx.c **** 
+ 224              		.loc 1 280 34 view .LVU59
+ 225 005a 1140     		ands	r1, r2
+ 280:Src/system_stm32f0xx.c **** 
+ 226              		.loc 1 280 20 view .LVU60
+ 227 005c 0131     		adds	r1, r1, #1
+ 228              	.LVL18:
+ 282:Src/system_stm32f0xx.c ****       {
+ 229              		.loc 1 282 7 is_stmt 1 view .LVU61
+ 282:Src/system_stm32f0xx.c ****       {
+ 230              		.loc 1 282 10 is_stmt 0 view .LVU62
+ARM GAS  /tmp/ccITqQsm.s 			page 11
+
+
+ 231 005e 8022     		movs	r2, #128
+ 232 0060 5202     		lsls	r2, r2, #9
+ 233 0062 9342     		cmp	r3, r2
+ 234 0064 0AD0     		beq	.L12
+ 288:Src/system_stm32f0xx.c ****       {
+ 235              		.loc 1 288 12 is_stmt 1 view .LVU63
+ 288:Src/system_stm32f0xx.c ****       {
+ 236              		.loc 1 288 15 is_stmt 0 view .LVU64
+ 237 0066 C022     		movs	r2, #192
+ 238 0068 5202     		lsls	r2, r2, #9
+ 239 006a 9342     		cmp	r3, r2
+ 240 006c 0DD0     		beq	.L13
+ 300:Src/system_stm32f0xx.c **** #else
+ 241              		.loc 1 300 9 is_stmt 1 view .LVU65
+ 300:Src/system_stm32f0xx.c **** #else
+ 242              		.loc 1 300 37 is_stmt 0 view .LVU66
+ 243 006e 0C48     		ldr	r0, .L14+8
+ 244 0070 FFF7FEFF 		bl	__aeabi_uidiv
+ 245              	.LVL19:
+ 300:Src/system_stm32f0xx.c **** #else
+ 246              		.loc 1 300 52 view .LVU67
+ 247 0074 6043     		muls	r0, r4
+ 300:Src/system_stm32f0xx.c **** #else
+ 248              		.loc 1 300 25 view .LVU68
+ 249 0076 094B     		ldr	r3, .L14+4
+ 250 0078 1860     		str	r0, [r3]
+ 251 007a D3E7     		b	.L8
+ 252              	.LVL20:
+ 253              	.L12:
+ 285:Src/system_stm32f0xx.c ****       }
+ 254              		.loc 1 285 9 is_stmt 1 view .LVU69
+ 285:Src/system_stm32f0xx.c ****       }
+ 255              		.loc 1 285 37 is_stmt 0 view .LVU70
+ 256 007c 0848     		ldr	r0, .L14+8
+ 257 007e FFF7FEFF 		bl	__aeabi_uidiv
+ 258              	.LVL21:
+ 285:Src/system_stm32f0xx.c ****       }
+ 259              		.loc 1 285 52 view .LVU71
+ 260 0082 6043     		muls	r0, r4
+ 285:Src/system_stm32f0xx.c ****       }
+ 261              		.loc 1 285 25 view .LVU72
+ 262 0084 054B     		ldr	r3, .L14+4
+ 263 0086 1860     		str	r0, [r3]
+ 264 0088 CCE7     		b	.L8
+ 265              	.LVL22:
+ 266              	.L13:
+ 291:Src/system_stm32f0xx.c ****       }
+ 267              		.loc 1 291 9 is_stmt 1 view .LVU73
+ 291:Src/system_stm32f0xx.c ****       }
+ 268              		.loc 1 291 39 is_stmt 0 view .LVU74
+ 269 008a 0748     		ldr	r0, .L14+16
+ 270 008c FFF7FEFF 		bl	__aeabi_uidiv
+ 271              	.LVL23:
+ 291:Src/system_stm32f0xx.c ****       }
+ 272              		.loc 1 291 54 view .LVU75
+ 273 0090 6043     		muls	r0, r4
+ 291:Src/system_stm32f0xx.c ****       }
+ARM GAS  /tmp/ccITqQsm.s 			page 12
+
+
+ 274              		.loc 1 291 25 view .LVU76
+ 275 0092 024B     		ldr	r3, .L14+4
+ 276 0094 1860     		str	r0, [r3]
+ 277 0096 C5E7     		b	.L8
+ 278              	.L15:
+ 279              		.align	2
+ 280              	.L14:
+ 281 0098 00100240 		.word	1073876992
+ 282 009c 00000000 		.word	.LANCHOR0
+ 283 00a0 00127A00 		.word	8000000
+ 284 00a4 00000000 		.word	.LANCHOR1
+ 285 00a8 006CDC02 		.word	48000000
+ 286              		.cfi_endproc
+ 287              	.LFE38:
+ 289              		.global	APBPrescTable
+ 290              		.global	AHBPrescTable
+ 291              		.global	SystemCoreClock
+ 292              		.section	.data.SystemCoreClock,"aw"
+ 293              		.align	2
+ 294              		.set	.LANCHOR0,. + 0
+ 297              	SystemCoreClock:
+ 298 0000 00127A00 		.word	8000000
+ 299              		.section	.rodata.AHBPrescTable,"a"
+ 300              		.align	2
+ 301              		.set	.LANCHOR1,. + 0
+ 304              	AHBPrescTable:
+ 305 0000 00       		.byte	0
+ 306 0001 00       		.byte	0
+ 307 0002 00       		.byte	0
+ 308 0003 00       		.byte	0
+ 309 0004 00       		.byte	0
+ 310 0005 00       		.byte	0
+ 311 0006 00       		.byte	0
+ 312 0007 00       		.byte	0
+ 313 0008 01       		.byte	1
+ 314 0009 02       		.byte	2
+ 315 000a 03       		.byte	3
+ 316 000b 04       		.byte	4
+ 317 000c 06       		.byte	6
+ 318 000d 07       		.byte	7
+ 319 000e 08       		.byte	8
+ 320 000f 09       		.byte	9
+ 321              		.section	.rodata.APBPrescTable,"a"
+ 322              		.align	2
+ 325              	APBPrescTable:
+ 326 0000 00       		.byte	0
+ 327 0001 00       		.byte	0
+ 328 0002 00       		.byte	0
+ 329 0003 00       		.byte	0
+ 330 0004 01       		.byte	1
+ 331 0005 02       		.byte	2
+ 332 0006 03       		.byte	3
+ 333 0007 04       		.byte	4
+ 334              		.text
+ 335              	.Letext0:
+ 336              		.file 2 "/home/zhengxg/work/stm32/tools/gcc-arm-none-eabi-8-2018-q4-major/arm-none-eabi/include/ma
+ 337              		.file 3 "/home/zhengxg/work/stm32/tools/gcc-arm-none-eabi-8-2018-q4-major/arm-none-eabi/include/sy
+ARM GAS  /tmp/ccITqQsm.s 			page 13
+
+
+ 338              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 339              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
+ 340              		.file 6 "/home/zhengxg/work/stm32/tools/gcc-arm-none-eabi-8-2018-q4-major/arm-none-eabi/include/sy
+ 341              		.file 7 "/home/zhengxg/work/stm32/tools/gcc-arm-none-eabi-8-2018-q4-major/arm-none-eabi/include/sy
+ 342              		.file 8 "/home/zhengxg/work/stm32/tools/gcc-arm-none-eabi-8-2018-q4-major/lib/gcc/arm-none-eabi/8.
+ 343              		.file 9 "/home/zhengxg/work/stm32/tools/gcc-arm-none-eabi-8-2018-q4-major/arm-none-eabi/include/sy
+ARM GAS  /tmp/ccITqQsm.s 			page 14
 
 
 DEFINED SYMBOLS
-                            *ABS*:00000000 system_stm32f0xx.c
-     /tmp/ccLw8832.s:20     .text.SystemInit:00000000 $t
-     /tmp/ccLw8832.s:25     .text.SystemInit:00000000 SystemInit
-     /tmp/ccLw8832.s:82     .text.SystemInit:00000048 $d
-     /tmp/ccLw8832.s:93     .text.SystemCoreClockUpdate:00000000 $t
-     /tmp/ccLw8832.s:98     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
-     /tmp/ccLw8832.s:233    .text.SystemCoreClockUpdate:00000098 $d
-     /tmp/ccLw8832.s:270    .rodata.APBPrescTable:00000000 APBPrescTable
-     /tmp/ccLw8832.s:249    .rodata.AHBPrescTable:00000000 AHBPrescTable
-     /tmp/ccLw8832.s:284    .data.SystemCoreClock:00000000 SystemCoreClock
-     /tmp/ccLw8832.s:245    .rodata.AHBPrescTable:00000000 $d
-     /tmp/ccLw8832.s:267    .rodata.APBPrescTable:00000000 $d
-     /tmp/ccLw8832.s:280    .data.SystemCoreClock:00000000 $d
-                     .debug_frame:00000010 $d
+                            *ABS*:0000000000000000 system_stm32f0xx.c
+     /tmp/ccITqQsm.s:16     .text.SystemInit:0000000000000000 $t
+     /tmp/ccITqQsm.s:24     .text.SystemInit:0000000000000000 SystemInit
+     /tmp/ccITqQsm.s:90     .text.SystemInit:0000000000000048 $d
+     /tmp/ccITqQsm.s:101    .text.SystemCoreClockUpdate:0000000000000000 $t
+     /tmp/ccITqQsm.s:108    .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+     /tmp/ccITqQsm.s:281    .text.SystemCoreClockUpdate:0000000000000098 $d
+     /tmp/ccITqQsm.s:325    .rodata.APBPrescTable:0000000000000000 APBPrescTable
+     /tmp/ccITqQsm.s:304    .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
+     /tmp/ccITqQsm.s:297    .data.SystemCoreClock:0000000000000000 SystemCoreClock
+     /tmp/ccITqQsm.s:293    .data.SystemCoreClock:0000000000000000 $d
+     /tmp/ccITqQsm.s:300    .rodata.AHBPrescTable:0000000000000000 $d
+     /tmp/ccITqQsm.s:322    .rodata.APBPrescTable:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_uidiv
