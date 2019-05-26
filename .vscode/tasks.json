@@ -36,7 +36,7 @@
         {
             "label": "pyocd download",
             "type": "shell",
-            "command": "pyocd-flashtool -t stm32f072c8 -se build/DigitalPower.hex",
+            "command": "pyocd-flashtool -t stm32f072c8 -ce build/DigitalPower.hex",
             "group": {
                 "kind": "build",
                 "isDefault": true

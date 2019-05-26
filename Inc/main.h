@@ -66,6 +66,10 @@ typedef struct {
     int RtCurrent;
     int SetVoltage;
     int SetCurrent;
+    int VoltageMax;
+    int VoltageMin;
+    int CurrentMax;
+    int CurrentMin;
 }SystemInfo_t;
 
 /* USER CODE END ET */

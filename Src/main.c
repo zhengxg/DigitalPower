@@ -316,6 +316,8 @@ int main(void)
   g_SystemInfo.SetCurrent = 50;//500mA
   g_SystemInfo.RtVoltage = 100;
   g_SystemInfo.RtCurrent = 50;
+  g_SystemInfo.VoltageMax = 3000;
+  g_SystemInfo.VoltageMin = 125;
   menuInit();
 
   /* USER CODE END 2 */
